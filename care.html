@@ -1,39 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-<meta charset="UTF-8"
-<title> Уход </title>
+<meta charset="UTF-8">
+<title>Уход</title>
+
 <style>
-{background-color: linear-gradient(to bottom, #ffe4ec, #fff);
-font-family: Arial, sans-serif;
-margin: 0;}
+body {
+  background: linear-gradient ( tobottom, #ffe4ec, #fff);
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+
+nav {
+  background-color: #ffc0cb;
+  padding: 15 px;
+  text-align: center;
+}
+
+nav a {
+  margin: 10 px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: 0.3 s;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* контейнер */
+.container {
+  padding: 20 px;
+}
+
+
+img {
+  border-radius: 15 px;
+  margin: 10 px;
+  transition: 0.3 s;
+}
+
+img:hover {
+  transform: scale (1.05);
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 80 %;
+}
+
+th, td {
+  padding: 10 px;
+  border: 1 px solid black;
+}
+
+th {
+  background-color: #ffc0cb;
+}
+</style>
 </head>
+
 <body>
+
 <nav>
-<h2> Навигация</h2>
-<a href="index.html">Главная</a> |
-<a href="care.html">Уход</a> |
-<a href="ptoducts.html">Продукты</a> |
-<a href="gallery.html"> Галлерея </a>|
-<a href="quiz.html"> Тест </a>
+<a href="index.html">Главная</a>
+<a href="care.html">Уход</a>
+<a href="products.html">Продукты</a>
+<a href="gallery.html">Галерея</a>
+<a href="quiz.html">Тест</a>
 </nav>
+
 <div class="container">
-<h2> 8 этапов ухода </h2>
+
+<h2> 8 шагов ухода </h2>
+
 <ol>
-<li> Очищение маслом </li>
-<li> Пенка </li>
-<li> Тонер </li>
-<li> Эссенция </li>
-<li> Сыворотка </li>
-<li> Крем для глаз </li>
-<li> Крем </li>
-<li> SPF </li>
+<li>Очищение маслом</li>
+<li>Пенка</li>
+<li>Тонер</li>
+<li>Эссенция</li>
+<li>Сыворотка</li>
+<li>Крем для глаз</li>
+<li>Крем</li>
+<li>SPF</li>
 </ol>
-<h3> Плюсы такого ухода: </h3>
+
+<h3>Плюсы:</h3>
 <ul>
 <li> Увлажнение </li>
 <li> Чистая кожа </li>
-<li> Glow эффект </li>
+<li> Сияющий-Glow эффект </li>
 </ul>
-<img scr="foto" wigth="300" alt="Уход">
+
+<img src="images/skincare.jpg" width="300" alt="Уход">
+
 </div>
+
 </body>
 </html>
