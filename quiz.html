@@ -5,43 +5,9 @@
 <title>Тест</title>
 
 <style>
-
 body {
-  background: linear-gradient ( tobottom, #ffe4ec, #ffffff);
+  background: linear-gradient(to bottom, #ffe4ec, #fff);
   font-family: Arial;
-  margin: 0;
-}
-
-/* меню */
-nav {
-  background-color: #ffc0cb;
-  padding: 15px;
-  text-align: center;
-}
-
-nav a {
-  margin: 10px;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: white;
-}
-
-/* текст */
-.container {
-  padding: 20px;
-}
-
-/* кнопка */
-button {
-  padding: 10px;
-  background-color: #ffc0cb;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
 /* результат */
@@ -53,13 +19,11 @@ button {
   border-radius: 10px;
 }
 
-/* правильный результат */
 .correct {
   background-color: #c8f7c5;
   animation: fade 0.5s;
 }
 
-/* неправильный результат */
 .wrong {
   background-color: #f7c5c5;
   animation: shake 0.3s;
@@ -67,7 +31,7 @@ button {
 
 /* анимации */
 @keyframes fade {
-   from {opacity: 0;}
+  from {opacity: 0;}
   to {opacity: 1;}
 }
 
@@ -78,56 +42,37 @@ button {
   75% {transform: translateX(-5px);}
   100% {transform: translateX(0);}
 }
-
 </style>
 
 <script>
-
 function checkAnswers() {
-
   let score = 0;
 
   let q1 = document.querySelector('input[name="q1"]:checked');
   let q2 = document.querySelector('input[name="q2"]:checked');
-  let q3 = document.querySelector('input[name="q3"]:checked');
-  let q4 = document.querySelector('input[name="q4"]:checked');
-  let q5 = document.querySelector('input[name="q5"]:checked');
 
   let result = document.getElementById("result");
 
-  if (!q1  !q2  !q3  !q4  !q5) {
-
+  if (!q1 || !q2) {
     result.style.display = "block";
     result.className = "result wrong";
-    result.innerHTML = "❌ Ответьте на все вопросы!";
+    result.innerHTML = "Ответь на все вопросы!";
     return;
   }
 
-  if (q1.value == "correct") score++;
-  if (q2.value == "correct") score++;
-  if (q3.value == "correct") score++;
-  if (q4.value == "correct") score++;
-  if (q5.value == "correct") score++;
+  if (q1.value === "correct") score++;
+  if (q2.value === "correct") score++;
 
   result.style.display = "block";
 
-  if (score == 5) {
-
+  if (score === 2) {
     result.className = "result correct";
-    result.innerHTML = "✨ Отлично! Все ответы правильные!";
-
-  } else if (score >= 3) {
-
-    result.className = "result correct";
-    result.innerHTML = " Хороший результат! Правильных ответов: " + score;
-
+    result.innerHTML = "✨ Всё правильно!";
   } else {
-
     result.className = "result wrong";
-    result.innerHTML = "❌ Правильных ответов: " + score + ". Попробуй ещё!";
+    result.innerHTML = "❌ Есть ошибки!";
   }
 }
-
 </script>
 
 </head>
@@ -142,74 +87,21 @@ function checkAnswers() {
 <a href="quiz.html">Тест</a>
 </nav>
 
-<div class="container">
+<h2>Тест</h2>
 
-<h1>Тест по K-Beauty </h1>
-
-
-<p>
-Этот небольшой тест поможет проверить знания о корейской косметике и уходе за кожей.
-Вопросы связаны с базовыми продуктами и этапами ухода.
-
-</p>
-
-<!-- ВОПРОС 1 -->
-
-<p><b>1. Что используется для увлажнения кожи?</b></p>
-
+<p>1. Что увлажняет кожу?</p>
 <input type="radio" name="q1" value="wrong"> Пудра<br>
 <input type="radio" name="q1" value="correct"> Крем<br>
-<input type="radio" name="q1" value="wrong"> Тени<br>
 
-<br>
-
-<!-- ВОПРОС 2 -->
-
-<p><b>2. Что такое кушон?</b></p>
-
+<p>2. Что такое кушон?</p>
 <input type="radio" name="q2" value="correct"> Тональное средство<br>
 <input type="radio" name="q2" value="wrong"> Помада<br>
-<input type="radio" name="q2" value="wrong"> BB-крем <br>
 
 <br>
 
-<!-- ВОПРОС 3 -->
-
-<p><b>3. Какой продукт защищает кожу от солнца?</b></p>
-
-<input type="radio" name="q3" value="wrong"> Румяна<br>
-<input type="radio" name="q3" value="correct"> SPF-крем<br>
-<input type="radio" name="q3" value="wrong"> Тинт<br>
-
-<br>
-
-<!-- ВОПРОС 4 -->
-
-<p><b>4. Что обычно используют после очищения кожи?</b></p>
-
-<input type="radio" name="q4" value="correct"> Тонер<br>
-<input type="radio" name="q4" value="wrong"> Лак для волос<br>
-<input type="radio" name="q4" value="wrong"> Духи<br>
-
-<br>
-
-<!-- ВОПРОС 5 -->
-
-<p><b>5. Какой макияж часто встречается в K-Beauty?</b></p>
-
-<input type="radio" name="q5" value="correct"> Естественный и сияющий<br>
-<input type="radio" name="q5" value="wrong"> Очень тёмный<br>
-<input type="radio" name="q5" value="wrong"> Театральный грим<br>
-
-<br><br>
-
-<button onclick="checkAnswers()">
-  Проверить ответы
-</button>
+<button onclick="checkAnswers()">Проверить</button>
 
 <div id="result" class="result"></div>
-
-</div>
 
 </body>
 </html>
