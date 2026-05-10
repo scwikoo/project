@@ -1,62 +1,241 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 <meta charset="UTF-8">
 <title>Тест по K-Beauty</title>
+
 <style>
-/* your CSS here (unchanged, already correct) */
+
+body {
+    background: linear-gradient(to bottom, #ffe4ec, #ffffff);
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* меню */
+nav {
+    background-color: #ffc0cb;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 10px;
+    color: black;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* контейнер */
+.container {
+    padding: 20px;
+}
+
+/* кнопка */
+button {
+    background-color: #ffc0cb;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* результат */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+    font-weight: bold;
+}
+
+/* правильный ответ */
+.correct {
+    background-color: #c8f7c5;
+    animation: fade 0.5s;
+}
+
+/* неправильный ответ */
+.wrong {
+    background-color: #f7c5c5;
+    animation: shake 0.3s;
+}
+
+/* анимация появления */
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* анимация ошибки */
+@keyframes shake {
+
+    0% { transform: translateX(0); }
+
+    25% { transform: translateX(-5px); }
+
+    50% { transform: translateX(5px); }
+
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
 </style>
+
 <script>
+
 function checkAnswers() {
+
     let score = 0;
+
     let q1 = document.querySelector('input[name="q1"]:checked');
     let q2 = document.querySelector('input[name="q2"]:checked');
     let q3 = document.querySelector('input[name="q3"]:checked');
     let q4 = document.querySelector('input[name="q4"]:checked');
     let q5 = document.querySelector('input[name="q5"]:checked');
+
     let result = document.getElementById("result");
 
     // если не все вопросы отвечены
     if (!q1 || !q2 || !q3 || !q4 || !q5) {
+
         result.style.display = "block";
         result.className = "result wrong";
         result.innerHTML = "❌ Ответьте на все вопросы!";
+
         return;
     }
 
-    // проверка
-    if (q1.value === "correct") score++;
-    if (q2.value === "correct") score++;
-    if (q3.value === "correct") score++;
-    if (q4.value === "correct") score++;
-    if (q5.value === "correct") score++;
+    // проверка 
+    if (q1.value === "correct") {
+        score++;
+    }
+
+    if (q2.value === "correct") {
+        score++;
+    }
+
+    if (q3.value === "correct") {
+        score++;
+    }
+
+    if (q4.value === "correct") {
+        score++;
+    }
+
+    if (q5.value === "correct") {
+        score++;
+    }
 
     result.style.display = "block";
 
     // результат
     if (score === 5) {
+
         result.className = "result correct";
         result.innerHTML = "✨ Отлично! Все ответы правильные!";
+
     } else if (score >= 3) {
+
         result.className = "result correct";
         result.innerHTML = "💖 Хороший результат! Правильных ответов: " + score;
+
     } else {
+
         result.className = "result wrong";
         result.innerHTML = "❌ Правильных ответов: " + score + ". Попробуй ещё!";
     }
 }
+
 </script>
+
 </head>
+
 <body>
+
 <nav>
-  <a href="index.html">Главная</a>
-  <a href="care.html">Уход</a>
-  <a href="products.html">Продукты</a>
-  <a href="gallery.html">Галерея</a>
-  <a href="quiz.html">Тест</a>
+<a href="index.html">Главная</a>
+<a href="care.html">Уход</a>
+<a href="products.html">Продукты</a>
+<a href="gallery.html">Галерея</a>
+<a href="quiz.html">Тест</a>
 </nav>
+
 <div class="container">
-  <!-- quiz content here -->
+
+<h1>Тест по K-Beauty 💄</h1>
+
+<p>
+Ответьте на вопросы о корейской косметике и уходе за кожей.
+</p>
+
+<!-- ВОПРОС 1 -->
+
+<p><b>1. Что используется для увлажнения кожи?</b></p>
+
+<input type="radio" name="q1" value="wrong"> Пудра<br>
+<input type="radio" name="q1" value="correct"> Крем<br>
+<input type="radio" name="q1" value="wrong"> Тени<br>
+
+<br>
+
+<!-- ВОПРОС 2 -->
+
+<p><b>2. Что такое кушон?</b></p>
+
+<input type="radio" name="q2" value="correct"> Тональное средство<br>
+<input type="radio" name="q2" value="wrong"> Помада<br>
+<input type="radio" name="q2" value="wrong"> Шампунь<br>
+
+<br>
+
+<!-- ВОПРОС 3 -->
+
+<p><b>3. Какой продукт защищает кожу от солнца?</b></p>
+
+<input type="radio" name="q3" value="wrong"> Румяна<br>
+<input type="radio" name="q3" value="correct"> SPF-крем<br>
+<input type="radio" name="q3" value="wrong"> Тинт<br>
+
+<br>
+
+<!-- ВОПРОС 4 -->
+
+<p><b>4. Что обычно используют после очищения кожи?</b></p>
+<input type="radio" name="q4" value="correct"> Тонер<br>
+<input type="radio" name="q4" value="wrong"> Лак для волос<br>
+<input type="radio" name="q4" value="wrong"> Духи<br>
+
+<br>
+
+<!-- ВОПРОС 5 -->
+
+<p><b>5. Какой стиль макияжа популярен в K-Beauty?</b></p>
+
+<input type="radio" name="q5" value="correct"> Естественный и сияющий<br>
+<input type="radio" name="q5" value="wrong"> Очень тёмный<br>
+<input type="radio" name="q5" value="wrong"> Театральный грим<br>
+
+<br><br>
+
+<button type="button" onclick="checkAnswers()">
+Проверить ответы
+</button>
+
+<div id="result" class="result"></div>
+
 </div>
+
 </body>
 </html>
